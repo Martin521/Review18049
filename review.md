@@ -4,7 +4,7 @@
 
 - "*case study, exploring how a language suggestion made its way to implementation*"
 
-- Enable participants to review the PR
+- Enable participants to more easily review the PR
 
 ## History
 
@@ -29,8 +29,15 @@
 
 - Disclaimer: I am not a compiler expert, so please correct me when I talk rubbish
 
-- [Compilation flow](https://github.com/Martin521/Review2412/blob/main/CompilerFlowChart.md)
-  - [lex.fsl](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/lex.fsl#L1057), [lex.fs](https://github.com/Martin521/Review2412/blob/12ca289ded0c9fcd490633f168e0343bcf5255a0/fs/lex.fs#L2925), [pars.fsy](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/pars.fsy#L480), [pars.fs](https://github.com/Martin521/Review2412/blob/12ca289ded0c9fcd490633f168e0343bcf5255a0/fs/pars.fs#L3172)
+- Compiler directives (pragmas)
+  - starting with `#`, on a separate line
+  - [F# Preprocessing directives](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#33-conditional-compilation)
+  - [F# Compiler Directives](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#124-compiler-directives)
+  - [F# Line Directives](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#39-line-directives)
+
+- [Compilation flow](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md)
+
+  - [lex.fsl](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/lex.fsl#L1057), [lex.fs](https://github.com/Martin521/Review18049/blob/12ca289ded0c9fcd490633f168e0343bcf5255a0/fs/lex.fs#L2925), [pars.fsy](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/pars.fsy#L480), [pars.fs](https://github.com/Martin521/Review18049/blob/12ca289ded0c9fcd490633f168e0343bcf5255a0/fs/pars.fs#L3172)
 
 - complications
   - no preprocessor => late pragma processing

@@ -8,7 +8,7 @@ graph TB
   Pre["`Preprocessor
     NO!!`"]
     -- code text -->
-  T["`Tokenizer
+  T["`Tokenizer (Lexer)
     (lex.fsl -> fslex -> lex.fs)`"]
     -- tokens -->
   U["`'Unlightener'
