@@ -39,9 +39,9 @@
   - [F# Compiler Directives](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#124-compiler-directives)
   - [F# Line Directives](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#39-line-directives)
 
-- [Compilation flow](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md)
+- [Compilation flow](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md) ([ext](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md))
 
-  - [lex.fsl](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/lex.fsl#L1057), [lex.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/lex.fs#L2924), [pars.fsy](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/pars.fsy#L480), [pars.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/pars.fs#L3164)
+  - [lex.fsl](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/lex.fsl#L1057), [lex.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/lex.fs#L2924), [pars.fsy](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/pars.fsy#L480), [pars.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/pars.fs#L3172)
 
 - complications
   - streaming => ruminating error logging
