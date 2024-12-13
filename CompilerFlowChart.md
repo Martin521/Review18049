@@ -19,6 +19,7 @@ graph TB
     -- "`pre-AST
     ('ParsedInput')`" -->
   PostParse -- AST -->
+  U -- WS --> PostParse
   B("`Backend
     (type checking, code generation, IL emit)`")
     --> E[(.dll)]
@@ -29,7 +30,6 @@ graph TB
   IDE
   B --> IDE
   PostParse -- AST --> IDE
-  U -- WS --> PostParse
 ```
 
 
