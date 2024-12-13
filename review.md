@@ -1,6 +1,6 @@
 #  PR [#18049](https://github.com/dotnet/fsharp/pull/18049) "Scoped Nowarn"
 
-## Goals of this talk
+## Goals of [this](https://amplifyingfsharp.io/sessions/2024-12-13/) talk
 
 - "*case study, exploring how a language suggestion made its way to implementation*"
 
@@ -23,11 +23,13 @@
   - Little feedback, but there might still be contentious items
     - multiline, scripts, diagnostics
 
+- [draft PR](https://github.com/dotnet/fsharp/pull/17507)
+
 - PR [#18049](https://github.com/dotnet/fsharp/pull/18049)
 
-- But it is not done yet.
+- But it may still fail.
   - Unresolvable RFC discussion may still come up
-  - The (unavoidable) changes to the AST will break tools and thus may be too costly
+  - The (unavoidable) changes to the AST will break tools and may be deemed too costly
 
 ## Background
 
@@ -39,14 +41,15 @@
   - [F# Compiler Directives](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#124-compiler-directives)
   - [F# Line Directives](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#39-line-directives)
 
-- [Compilation flow](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md) ([ext](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md))
+- [Compilation flow](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChartSimple.md) ([ext](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md))
 
   - [lex.fsl](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/lex.fsl#L1057), [lex.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/lex.fs#L2924), [pars.fsy](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/pars.fsy#L480), [pars.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/pars.fs#L3172)
 
 - complications
   - streaming => ruminating error logging
+  - whitespace information for the IDE
   - no preprocessor => late pragma processing
-  - #line => see pars.fs/fsy, [range.fs](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/Utilities/range.fs#L266)
+  - #line => see pars.fs/fsy, [range.fs](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/Utilities/range.fs#L266), [Lexing.fs](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/buildtools/fslex/Lexing.fs)
 
 - scoped #nowarn (as it can be anywhere) can no longer be processed in the parser (i.e. [integrated](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#10-namespaces-and-modules) in the language grammar)
   - move to tokenizer (lex.fsl)
@@ -55,14 +58,13 @@
 
 - proposed [RFC](https://github.com/fsharp/fslang-design/blob/72ac047ee990e387caf1a0d76024c49babe9d1e8/drafts/FS-1146-scoped-nowarn.md)
   
-
 - PR [#18049](https://github.com/dotnet/fsharp/pull/18049)
 
 ## PR Review
 
 - [WarnScopes.fsi](https://github.com/dotnet/fsharp/blob/7498b0ba6dd99f6142b4cf3224c1766336abfdb3/src/Compiler/SyntaxTree/WarnScopes.fsi)
 
-  - ==> Add name to second parameter of MargeInto
+  - ==> Add name to second parameter of MergeInto
 
 - [1: Feature flag, baseline tests and WarnScopes module](https://github.com/dotnet/fsharp/pull/18049/commits/7498b0ba6dd99f6142b4cf3224c1766336abfdb3)
   - ==> remove .fantomasignore "nullness" section

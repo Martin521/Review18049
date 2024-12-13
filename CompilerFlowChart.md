@@ -29,7 +29,7 @@ graph TB
     -- WS -->
   IDE
   B --> IDE
-  PostParse -- AST --> IDE
+  PostParse -- AST trivia --> IDE
 ```
 
 
