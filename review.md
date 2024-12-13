@@ -25,6 +25,10 @@
 
 - PR [#18049](https://github.com/dotnet/fsharp/pull/18049)
 
+- But it is not done yet.
+  - Unresolvable RFC discussion may still come up
+  - The (unavoidable) changes to the AST will break tools and thus may be too costly
+
 ## Background
 
 - Disclaimer: I am not a compiler expert, so please correct me when I talk rubbish
@@ -37,11 +41,11 @@
 
 - [Compilation flow](https://github.com/Martin521/Review18049/blob/main/CompilerFlowChart.md)
 
-  - [lex.fsl](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/lex.fsl#L1057), [lex.fs](https://github.com/Martin521/Review18049/blob/12ca289ded0c9fcd490633f168e0343bcf5255a0/fs/lex.fs#L2925), [pars.fsy](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/pars.fsy#L480), [pars.fs](https://github.com/Martin521/Review18049/blob/12ca289ded0c9fcd490633f168e0343bcf5255a0/fs/pars.fs#L3172)
+  - [lex.fsl](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/lex.fsl#L1057), [lex.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/lex.fs#L2924), [pars.fsy](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/pars.fsy#L480), [pars.fs](https://github.com/Martin521/Review18049/blob/1ce657fd84b963d9e177f84ceeac157d6eccf8b1/fs/pars.fs#L3164)
 
 - complications
-  - no preprocessor => late pragma processing
   - streaming => ruminating error logging
+  - no preprocessor => late pragma processing
   - #line => see pars.fs/fsy, [range.fs](https://github.com/dotnet/fsharp/blob/935b796dc841b6346f655421bb791c1764ab1570/src/Compiler/Utilities/range.fs#L266)
 
 - scoped #nowarn (as it can be anywhere) can no longer be processed in the parser (i.e. [integrated](https://github.com/fsharp/fslang-spec/blob/main/releases/FSharp-Spec-4.1.2024-10-02.md#10-namespaces-and-modules) in the language grammar)

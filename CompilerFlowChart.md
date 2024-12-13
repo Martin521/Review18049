@@ -29,6 +29,7 @@ graph TB
   IDE
   B --> IDE
   PostParse -- AST --> IDE
+  U -- WS --> PostParse
 ```
 
 
