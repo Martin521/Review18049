@@ -19,10 +19,10 @@ graph TB
     -- "`pre-AST
     ('ParsedInput')`" -->
   PostParse -- AST -->
-  U -- WS --> PostParse
   B("`Backend
     (type checking, code generation, IL emit)`")
     --> E[(.dll)]
+  U -- WS --> PostParse
   U -- tokens -->
   S["`ServiceLexing
     (adding whitespace details)`"]
