@@ -26,10 +26,10 @@ graph TB
   U -- tokens -->
   S["`ServiceLexing
     (adding whitespace details)`"]
-    -- tokens -->
+    -- WS -->
   IDE
   B --> IDE
-  PostParse -- AST --> IDE
+  PostParse -- WS --> IDE
 ```
 
 
